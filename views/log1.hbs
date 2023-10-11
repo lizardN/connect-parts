@@ -1,0 +1,48 @@
+ <h2>Login</h2>
+	     	{{# if success }}
+    <section class="success">
+        <h2>Successful Validation!</h2>
+    </section>
+{{ else }}
+    {{# if errors }}
+        <section class="errors">
+            <ul>
+                {{# each errors }}
+                    <li>{{ this.msg }}</li>
+                {{/each}}
+            </ul>
+        </section>
+
+        {{/if}}
+        {{#if message}}
+        <div  class="{{message.type}}">
+            <strong>{{message.intro}}</strong>{{message.message}}
+        </div>
+        {{/if}}
+                                                                            <form method="post" class="woocommerce-form woocommerce-form-login login" action="/auth/signin">
+
+
+                                                                                <p class="form-row form-row-wide">
+                                                                                    <label for="username"> Email address &nbsp;<span class="required">*</span></label>
+                                                                                    <input type="email" class="input-text" name="email" id="email" value="" />
+                                                                                </p>
+                                                                                <p class="form-row form-row-wide">
+                                                                                    <label for="password">Password &nbsp;<span class="required">*</span></label>
+                                                                                    <input class="input-text" type="password" name="password" id="password" value="" />
+                                                                                </p>
+
+                                                                                <p class="form-row">
+                                                                                    <label for="rememberme" class="inline">
+					<input name="rememberme" type="checkbox" id="rememberme" value="forever" /> Remember me				</label>
+                                                                                </p>
+                                                                                <p class="form-row">
+                                                                                    <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="85e516fb23" /><input type="hidden" name="_wp_http_referer" value="/my-account/"
+                                                                                    /> <input type="submit" class="button" name="login" value="Login" />
+                                                                                </p>
+                                                                                <p class="lost_password">
+                                                                                    <a href="https://www.sahwiraconnect.com/my-account/lost-password/">Lost your password?</a>
+                                                                                </p>
+
+
+                                                                            </form>
+{{/if}}
